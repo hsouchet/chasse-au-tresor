@@ -1,6 +1,6 @@
 const indices = [
-    { lat: 45.123, lng: 5.456, texte: "En voiture Simone !" },
-    { lat: 45.123, lng: 5.456, texte: "Bien joué ! Dirige-toi maintenant vers le parc." },
+    { lat: 45.123, lng: 5.456, texte: "En voiture Simone, direction mc donals voreppe." },
+    { lat: 45.123, lng: 5.456, texte: "Sortie 10 tu prendras,." },
     { lat: 45.789, lng: 5.654, texte: "Tu es sur la bonne voie ! Rends-toi à la bibliothèque." },
 ];
 
