@@ -38,7 +38,7 @@ function calculerDistance(lat1, lng1, lat2, lng2) {
 function obtenirIndice(lat, lng) {
     for (const indice of indices) {
         const distance = calculerDistance(lat, lng, indice.lat, indice.lng);
-        if (distance < 0.1) {
+        if (distance < 1) {
             if (!foundIndices.some(i => i.texte === indice.texte)) {
                 foundIndices.push(indice);
                 afficherIndicesTrouves();
