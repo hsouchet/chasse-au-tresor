@@ -18,17 +18,17 @@
 
         <div class="controls">
             <button id="search-btn" class="btn">
-                <span id="search-text">Rechercher</span>
+                <span id="search-text">Vérifier ma position</span>
                 <div id="loading-spinner" class="spinner hidden"></div>
             </button>
         </div>
 
-        <div class="found-indices">
-            <h2>Indices trouvés</h2>
-            <div id="indices-list"></div>
-        </div>
-
         <div id="current-indice" class="current-indice"></div>
+
+        <div class="found-indices">
+            <h2 class="toggle-title">Indices trouvés ▼</h2>
+            <div id="indices-list" class="indices-content hidden"></div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
