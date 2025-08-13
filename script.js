@@ -49,17 +49,52 @@ function obtenirIndice(lat, lng) {
     return "Tu n'es pas encore près d'un indice. Continue à chercher !";
 }
 
-// Afficher les indices trouvés
+// Afficher les indices trouvés avec mini-cartes
 function afficherIndicesTrouves() {
     const list = document.getElementById('indices-list');
     list.innerHTML = '';
     foundIndices.forEach(indice => {
         const item = document.createElement('div');
         item.className = 'indice-item';
-        item.textContent = indice.texte;
+
+        const text = document.createElement('div');
+        text.textContent = indice.texte;
+        item.appendChild(text);
+
+        const miniMapDiv = document.createElement('div');
+        miniMapDiv.className = 'mini-map';
+        miniMapDiv.id = `mini-map-${indice.lat}-${indice.lng}`;
+        item.appendChild(miniMapDiv);
+
         list.appendChild(item);
+
+        setTimeout(() => {
+            const miniMap = L.map(miniMapDiv).setView([indice.lat, indice.lng], 15);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(miniMap);
+            L.marker([indice.lat, indice.lng]).addTo(miniMap)
+                .bindPopup(indice.texte)
+                .openPopup();
+            miniMap.invalidateSize(); // Force le redimensionnement de la mini-carte
+        }, 100);
     });
 }
+
+// Gestion du volet roulant
+document.querySelector('.toggle-title').addEventListener('click', () => {
+    const content = document.getElementById('indices-list');
+    const isHidden = content.classList.contains('hidden');
+    if (isHidden) {
+        content.classList.remove('hidden');
+        content.classList.add('visible');
+        document.querySelector('.toggle-title').textContent = 'Indices trouvés ▲';
+    } else {
+        content.classList.remove('visible');
+        content.classList.add('hidden');
+        document.querySelector('.toggle-title').textContent = 'Indices trouvés ▼';
+    }
+});
 
 // Afficher la position
 function afficherPosition(position) {
@@ -95,13 +130,12 @@ function afficherErreur(erreur) {
     arreterChargement();
 }
 
-// Démarrer le chargement
+// Démarrer/arrêter le chargement
 function demarrerChargement() {
     document.getElementById('search-text').classList.add('hidden');
     document.getElementById('loading-spinner').classList.remove('hidden');
 }
 
-// Arrêter le chargement
 function arreterChargement() {
     document.getElementById('search-text').classList.remove('hidden');
     document.getElementById('loading-spinner').classList.add('hidden');
@@ -124,51 +158,4 @@ if (navigator.geolocation) {
 } else {
     document.getElementById('current-indice').textContent = "La géolocalisation n'est pas supportée par ton navigateur.";
 }
-
-// Fonction pour afficher les indices trouvés avec mini-cartes
-function afficherIndicesTrouves() {
-    const list = document.getElementById('indices-list');
-    list.innerHTML = '';
-    foundIndices.forEach(indice => {
-        const item = document.createElement('div');
-        item.className = 'indice-item';
-
-        const text = document.createElement('div');
-        text.textContent = indice.texte;
-        item.appendChild(text);
-
-        // Ajout d'une mini-carte pour chaque indice
-        const miniMapDiv = document.createElement('div');
-        miniMapDiv.className = 'mini-map';
-        miniMapDiv.id = `mini-map-${indice.lat}-${indice.lng}`;
-        item.appendChild(miniMapDiv);
-
-        list.appendChild(item);
-
-        // Initialisation de la mini-carte
-        setTimeout(() => {
-            const miniMap = L.map(miniMapDiv).setView([indice.lat, indice.lng], 15);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(miniMap);
-            L.marker([indice.lat, indice.lng]).addTo(miniMap)
-                .bindPopup(indice.texte)
-                .openPopup();
-        }, 100);
-    });
-}
-
-// Gestion du volet roulant
-document.querySelector('.toggle-title').addEventListener('click', () => {
-    const content = document.getElementById('indices-list');
-    const isHidden = content.classList.contains('hidden');
-    if (isHidden) {
-        content.classList.remove('hidden');
-        content.classList.add('visible');
-        document.querySelector('.toggle-title').textContent = 'Indices trouvés ▲';
-    } else {
-        content.classList.remove('visible');
-        content.classList.add('hidden');
-        document.querySelector('.toggle-title').textContent = 'Indices trouvés ▼';
-    }
-});
+s
