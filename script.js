@@ -1,6 +1,6 @@
 const indices = [ 
     { lat: 45.15184260231581, lng: 5.7015055686360085, texte: "<img src='https://raw.githubusercontent.com/hsouchet/chasse-au-tresor/main/images/indice_1.png' alt='Indice 1' style='max-width:100%; height:auto;' />" },
-    { lat: 45.123, lng: 5.456, texte: "Sortie 10 tu prendras." },
+    { lat: 45.355198, lng: 5.591622, texte: "Sortie 10 tu prendras." },
     { lat: 45.789, lng: 5.654, texte: "Tu es sur la bonne voie ! Rends-toi à la bibliothèque." },
 ];
 
