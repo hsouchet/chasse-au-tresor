@@ -150,3 +150,10 @@ h2 {
     overflow: hidden;
     border: 1px solid #e0e0e0;
 }
+
+.indice-icon {
+    color: blue !important;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+}
