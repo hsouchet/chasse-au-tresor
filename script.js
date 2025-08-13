@@ -6,6 +6,8 @@ Sans bruit je voyage, j’ai connu quatre vies.
 Je suis la ville où le vert se boit, je respire la Chartreuse et croque l’histoire du chocolat.` 
 },
     { lat: 45.789, lng: 5.654, texte: "-.-.      ..      --      .      -      ..      .      .-.      .\n--      ---      -.      -      ..-.      .-.      .-.      .-      -"},
+    { lat: 45.355198, lng: 5.591622, texte: `Au croisement du défenseur de la République contre Napoléon III, surnommé “l’homme au ballon”, et d’un prénom masculin courant suivi d’un nom qui rime avec « Janine »… se trouve, à 5,45 km de Montferrat, ce lieu à deviner.` 
+},
 ];
 
 let foundIndices = [];
