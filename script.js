@@ -5,7 +5,7 @@ Je me faufile dans le quartier, comme une promesse de voyage qui se termine là 
 Sans bruit je voyage, j’ai connu quatre vies.
 Je suis la ville où le vert se boit, je respire la Chartreuse et croque l’histoire du chocolat.` 
 },
-    { lat: 45.789, lng: 5.654, texte: "Tu es sur la bonne voie ! Rends-toi à la bibliothèque." },
+    { lat: 45.789, lng: 5.654, texte: "-.-.      ..      --      .      -      ..      .      .-.      .\n--      ---      -.      -      ..-.      .-.      .-.      .-      -"},
 ];
 
 let foundIndices = [];
