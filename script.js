@@ -12,14 +12,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// Marqueurs pour les indices
-indices.forEach(indice => {
-    L.marker([indice.lat, indice.lng]).addTo(map)
-        .bindPopup(indice.texte)
-        .on('click', () => {
-            document.getElementById('current-indice').textContent = indice.texte;
-        });
-});
+let markers = []; // Tableau pour stocker les marqueurs des indices trouvés
 
 // Fonction pour calculer la distance
 function calculerDistance(lat1, lng1, lat2, lng2) {
@@ -41,6 +34,13 @@ function obtenirIndice(lat, lng) {
         if (distance < 0.1) {
             if (!foundIndices.some(i => i.texte === indice.texte)) {
                 foundIndices.push(indice);
+                // Ajoute un marqueur sur la grande carte
+                const marker = L.marker([indice.lat, indice.lng]).addTo(map)
+                    .bindPopup(indice.texte)
+                    .on('click', () => {
+                        document.getElementById('current-indice').textContent = indice.texte;
+                    });
+                markers.push(marker); // Stocke le marqueur
                 afficherIndicesTrouves();
             }
             return indice.texte;
