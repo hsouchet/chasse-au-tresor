@@ -109,3 +109,44 @@ h2 {
     border-radius: 8px;
     border-left: 4px solid #ffb74d;
 }
+.found-indices {
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 12px;
+}
+
+.toggle-title {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4ecdc4;
+    font-size: 18px;
+}
+
+.indices-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.indices-content.visible {
+    max-height: 500px; /* Ajuste selon le nombre d'indices */
+}
+
+.indice-item {
+    background-color: #f0f8ff;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border-left: 4px solid #4ecdc4;
+}
+
+.mini-map {
+    height: 120px;
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
