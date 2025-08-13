@@ -5,14 +5,29 @@ const indices = [
 ];
 
 let foundIndices = [];
+let markers = [];
+let userMarker = null;
+
+// Icônes personnalisées
+const userIcon = L.icon({
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', // Bleu
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32]
+});
+
+const indiceIcon = L.icon({
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/2776/2776067.png', // Rouge
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32]
+});
 
 // Initialisation de la carte
 const map = L.map('map').setView([45.1885, 5.7245], 11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-
-let markers = []; // Tableau pour stocker les marqueurs des indices trouvés
 
 // Fonction pour calculer la distance
 function calculerDistance(lat1, lng1, lat2, lng2) {
@@ -34,13 +49,12 @@ function obtenirIndice(lat, lng) {
         if (distance < 0.1) {
             if (!foundIndices.some(i => i.texte === indice.texte)) {
                 foundIndices.push(indice);
-                // Ajoute un marqueur sur la grande carte
-                const marker = L.marker([indice.lat, indice.lng]).addTo(map)
+                const marker = L.marker([indice.lat, indice.lng], { icon: indiceIcon }).addTo(map)
                     .bindPopup(indice.texte)
                     .on('click', () => {
                         document.getElementById('current-indice').textContent = indice.texte;
                     });
-                markers.push(marker); // Stocke le marqueur
+                markers.push(marker);
                 afficherIndicesTrouves();
             }
             return indice.texte;
@@ -73,10 +87,10 @@ function afficherIndicesTrouves() {
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(miniMap);
-            L.marker([indice.lat, indice.lng]).addTo(miniMap)
+            L.marker([indice.lat, indice.lng], { icon: indiceIcon }).addTo(miniMap)
                 .bindPopup(indice.texte)
                 .openPopup();
-            miniMap.invalidateSize(); // Force le redimensionnement de la mini-carte
+            miniMap.invalidateSize();
         }, 100);
     });
 }
@@ -100,12 +114,18 @@ document.querySelector('.toggle-title').addEventListener('click', () => {
 function afficherPosition(position) {
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
-    const indice = obtenirIndice(lat, lng);
-    document.getElementById('current-indice').textContent = indice;
-    map.setView([lat, lng], 15);
-    L.marker([lat, lng]).addTo(map)
+
+    if (userMarker) {
+        map.removeLayer(userMarker);
+    }
+
+    userMarker = L.marker([lat, lng], { icon: userIcon }).addTo(map)
         .bindPopup("Tu es ici !")
         .openPopup();
+
+    map.setView([lat, lng], 15);
+    const indice = obtenirIndice(lat, lng);
+    document.getElementById('current-indice').textContent = indice;
     arreterChargement();
 }
 
@@ -158,4 +178,3 @@ if (navigator.geolocation) {
 } else {
     document.getElementById('current-indice').textContent = "La géolocalisation n'est pas supportée par ton navigateur.";
 }
-s
