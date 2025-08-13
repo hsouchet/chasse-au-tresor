@@ -10,17 +10,17 @@ let userMarker = null;
 
 // Icônes personnalisées
 const userIcon = L.icon({
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', // Bleu
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', 
     iconSize: [32, 32],
     iconAnchor: [16, 32],
     popupAnchor: [0, -32]
 });
 
-const indiceIcon = L.icon({
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/2776/2776067.png', // Rouge
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
+const indiceIcon = L.divIcon({
+    className: 'indice-icon',
+    html: '📍', 
+    iconSize: [30, 30],
+    iconAnchor: [15, 30]
 });
 
 // Initialisation de la carte
