@@ -8,6 +8,7 @@ Je suis la ville où le vert se boit, je respire la Chartreuse et croque l’his
     { lat: 45.789, lng: 5.654, texte: "-.-.      ..      --      .      -      ..      .      .-.      .\n--      ---      -.      -      ..-.      .-.      .-.      .-      -"},
     { lat: 45.355198, lng: 5.591622, texte: `Au croisement du défenseur de la République contre Napoléon III, surnommé “l’homme au ballon”, et d’un prénom masculin courant suivi d’un nom qui rime avec « Janine »… se trouve, à 5,45 km de Montferrat, ce lieu à deviner.` 
 },
+    { lat: 45.355198, lng: 5.591622, texte: `Cap au nord, trouve la rue des Misérables, et arrête-toi au Tarn-et-Garonne.` },
 ];
 
 let foundIndices = [];
