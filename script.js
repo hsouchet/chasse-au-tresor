@@ -52,7 +52,7 @@ function obtenirIndice(lat, lng) {
                 const marker = L.marker([indice.lat, indice.lng], { icon: indiceIcon }).addTo(map)
                     .bindPopup(indice.texte)
                     .on('click', () => {
-                        document.getElementById('current-indice').textContent = indice.texte;
+                        document.getElementById('current-indice').innerHTML = indice.texte;
                     });
                 markers.push(marker);
                 afficherIndicesTrouves();
@@ -72,7 +72,7 @@ function afficherIndicesTrouves() {
         item.className = 'indice-item';
 
         const text = document.createElement('div');
-        text.textContent = indice.texte;
+        text.innerHTML = indice.texte;
         item.appendChild(text);
 
         const miniMapDiv = document.createElement('div');
