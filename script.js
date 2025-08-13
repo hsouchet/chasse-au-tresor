@@ -1,5 +1,5 @@
 const indices = [
-    { lat: 45.191817719418495, lng: 5.712483300151139, texte: "En voiture Simone, direction McDonald's Voreppe." },
+    { lat: 45.191817719418495, lng: 5.712483300151139, imageUrl: "https://raw.githubusercontent.com/helenesouchet/chasse-au-tresor/main/images/indice_1.png" },
     { lat: 45.123, lng: 5.456, texte: "Sortie 10 tu prendras." },
     { lat: 45.789, lng: 5.654, texte: "Tu es sur la bonne voie ! Rends-toi à la bibliothèque." },
 ];
