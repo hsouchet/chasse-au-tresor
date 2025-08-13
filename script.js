@@ -1,6 +1,10 @@
 const indices = [ 
     { lat: 45.15184260231581, lng: 5.7015055686360085, texte: "<img src='https://raw.githubusercontent.com/hsouchet/chasse-au-tresor/main/images/indice_1.png' alt='Indice 1' style='max-width:100%; height:auto;' />" },
-    { lat: 45.355198, lng: 5.591622, texte: "Sortie 10 tu prendras." },
+    { lat: 45.355198, lng: 5.591622, texte: `Je suis le V de la victoire.
+Je me faufile dans le quartier, comme une promesse de voyage qui se termine là où elle commence.
+Sans bruit je voyage, j’ai connu quatre vies.
+Je suis la ville où le vert se boit, je respire la Chartreuse et croque l’histoire du chocolat.` 
+},
     { lat: 45.789, lng: 5.654, texte: "Tu es sur la bonne voie ! Rends-toi à la bibliothèque." },
 ];
 
