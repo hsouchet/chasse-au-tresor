@@ -6,8 +6,8 @@ Sans bruit je voyage, j’ai connu quatre vies.
 Je suis la ville où le vert se boit, je respire la Chartreuse et croque l’histoire du chocolat.` 
 },
     { lat: 45.355207, lng: 5.591624, texte: "-.-.      ..      --      .      -      ..      .      .-.      .\n--      ---      -.      -      ..-.      .-.      .-.      .-      -"},
-    { lat: 45.15184260231581, lng: 5.7015055686360085, texte: `Au croisement du défenseur de la République contre Napoléon III, surnommé “l’homme au ballon”, et d’un prénom masculin courant suivi d’un nom qui rime avec « Janine »… se trouve, à 5,45 km de Montferrat, ce lieu à deviner.` },
-    //{ lat: 45.15184260231581, lng: 5.7015055686360085, texte: `Cap au nord, trouve la rue des Misérables, et arrête-toi au Tarn-et-Garonne.` },
+    { lat: 45.490127, lng: 5.592386, texte: `Au croisement du défenseur de la République contre Napoléon III, surnommé “l’homme au ballon”, et d’un prénom masculin courant suivi d’un nom qui rime avec « Janine »… se trouve, à 5,45 km de Montferrat, ce lieu à deviner.` },
+    { lat: 45.15184260231581, lng: 5.7015055686360085, texte: `Cap au nord, trouve la rue des Misérables, et arrête-toi au Tarn-et-Garonne.` },
 ];
 
 let foundIndices = [];
