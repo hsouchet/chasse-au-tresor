@@ -56,8 +56,9 @@ function obtenirIndice(lat, lng) {
             if (!foundIndices.some(i => i.texte === indice.texte)) {
                 foundIndices.push(indice);
                 const marker = L.marker([indice.lat, indice.lng], { icon: indiceIcon }).addTo(map)
-                    .bindPopup(indice.texte)
-                    document.getElementById('current-indice').innerHTML = indice.texte;
+                    .bindPopup(indice.texte);
+                // Affichage direct du texte de l'indice
+                document.getElementById('current-indice').innerHTML = indice.texte;
                 markers.push(marker);
                 afficherIndicesTrouves();
             }
