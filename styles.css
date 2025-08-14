@@ -158,5 +158,6 @@ h2 {
     border: none;
 }
 #current-indice {
-    white-space: pre-line;
+    white-space: pre;
+    font-family: monospace;
 }
