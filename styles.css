@@ -157,3 +157,6 @@ h2 {
     background: transparent;
     border: none;
 }
+#current-indice {
+    white-space: pre-line;
+}
