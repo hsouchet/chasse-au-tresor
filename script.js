@@ -130,7 +130,7 @@ function afficherPosition(position) {
 
     map.setView([lat, lng], 15);
     const indice = obtenirIndice(lat, lng);
-    document.getElementById('current-indice').textContent = indice;
+    document.getElementById('current-indice').innerHTML = indice;
     arreterChargement();
 }
 
